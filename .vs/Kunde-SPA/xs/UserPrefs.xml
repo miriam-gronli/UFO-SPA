@@ -1,0 +1,19 @@
+﻿<Properties StartupConfiguration="{ACB74181-4626-457D-8F75-254055E59D08}|Default">
+  <MonoDevelop.Ide.ItemProperties.Kunde-SPA PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Kunde-SPA" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Kunde-SPA-Routing PreferredExecutionTarget="/Applications/Google Chrome.app" />
+</Properties>

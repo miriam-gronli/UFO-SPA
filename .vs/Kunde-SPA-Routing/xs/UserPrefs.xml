@@ -1,0 +1,46 @@
+﻿<Properties StartupConfiguration="{ACB74181-4626-457D-8F75-254055E59D08}|Default">
+  <MonoDevelop.Ide.ItemProperties.Kunde-SPA-Routing PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Kunde-SPA-Routing/ClientApp/package.json">
+    <Files>
+      <File FileName="Kunde-SPA-Routing/ClientApp/src/app/app-routing.module.ts" />
+      <File FileName="Kunde-SPA-Routing/ClientApp/src/app/endre/endre.ts" />
+      <File FileName="Kunde-SPA-Routing/ClientApp/src/app/app.module.ts" />
+      <File FileName="Kunde-SPA-Routing/DAL/ObservasjonContekst.cs" />
+      <File FileName="Kunde-SPA-Routing/ClientApp/src/tsconfig.app.json" />
+      <File FileName="Kunde-SPA-Routing/ClientApp/src/index.html" />
+      <File FileName="Kunde-SPA-Routing/ClientApp/src/app/meny/meny.html" />
+      <File FileName="Kunde-SPA-Routing/ClientApp/src/app/liste/liste.html" />
+      <File FileName="Kunde-SPA-Routing/ClientApp/src/app/lagre/lagre.html" />
+      <File FileName="Kunde-SPA-Routing/ClientApp/src/app/endre/endre.html" />
+      <File FileName="Kunde-SPA-Routing/ClientApp/package.json" Line="38" Column="5" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Kunde-SPA-Routing" expanded="True">
+            <Node name="Kunde-SPA-Routing" expanded="True">
+              <Node name="ClientApp" expanded="True">
+                <Node name="src" expanded="True">
+                  <Node name="app" expanded="True">
+                    <Node name="endre" expanded="True" />
+                    <Node name="lagre" expanded="True" />
+                    <Node name="liste" expanded="True" />
+                    <Node name="meny" expanded="True" />
+                    <Node name="app.module.ts" selected="True" />
+                  </Node>
+                </Node>
+              </Node>
+              <Node name="DAL" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

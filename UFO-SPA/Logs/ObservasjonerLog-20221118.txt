@@ -1,0 +1,214 @@
+2022-11-18T15:22:35.7475920+01:00  [INF] Now listening on: "https://localhost:5001" (d826f4b8)
+2022-11-18T15:22:35.7572250+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2022-11-18T15:22:35.8320330+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-11-18T15:22:35.8581960+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-11-18T15:22:35.8820890+01:00  [INF] Content root path: "/Users/miriam/Documents/Skole/ITPE3200 - Webapplikasjoner/Gruppeoppgave2/Kunde-SPA-Routing/Kunde-SPA-Routing" (b5d60022)
+2022-11-18T15:22:36.0358830+01:00  [ERR] sh: /Users/miriam/Documents/Skole/ITPE3200 - Webapplikasjoner/Gruppeoppgave2/Kunde-SPA-Routing/Kunde-SPA-Routing/ClientApp/node_modules/.bin/ng: Permission denied
+ (8c886dd4)
+2022-11-18T15:22:37.4962970+01:00 0HMM9E1BG78LQ:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.AggregateException: One or more errors occurred. (One or more errors occurred. (The NPM script 'start' exited without indicating that the Angular CLI was listening for requests. The error output was: sh: /Users/miriam/Documents/Skole/ITPE3200 - Webapplikasjoner/Gruppeoppgave2/Kunde-SPA-Routing/Kunde-SPA-Routing/ClientApp/node_modules/.bin/ng: Permission denied
+
+))
+ ---> System.AggregateException: One or more errors occurred. (The NPM script 'start' exited without indicating that the Angular CLI was listening for requests. The error output was: sh: /Users/miriam/Documents/Skole/ITPE3200 - Webapplikasjoner/Gruppeoppgave2/Kunde-SPA-Routing/Kunde-SPA-Routing/ClientApp/node_modules/.bin/ng: Permission denied
+
+)
+ ---> System.InvalidOperationException: The NPM script 'start' exited without indicating that the Angular CLI was listening for requests. The error output was: sh: /Users/miriam/Documents/Skole/ITPE3200 - Webapplikasjoner/Gruppeoppgave2/Kunde-SPA-Routing/Kunde-SPA-Routing/ClientApp/node_modules/.bin/ng: Permission denied
+
+
+ ---> System.IO.EndOfStreamException: Attempted to read past the end of the stream.
+   at Microsoft.AspNetCore.SpaServices.AngularCli.AngularCliMiddleware.StartAngularCliServerAsync(String sourcePath, String npmScriptName, ILogger logger)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.SpaServices.AngularCli.AngularCliMiddleware.StartAngularCliServerAsync(String sourcePath, String npmScriptName, ILogger logger)
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at Microsoft.AspNetCore.SpaServices.AngularCli.AngularCliMiddleware.<>c.<Attach>b__2_0(Task`1 task)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at Microsoft.AspNetCore.SpaServices.Extensions.Util.TaskTimeoutExtensions.WithTimeout[T](Task`1 task, TimeSpan timeoutDelay, String message)
+   at Microsoft.AspNetCore.SpaServices.Extensions.Proxy.SpaProxy.PerformProxyRequest(HttpContext context, HttpClient httpClient, Task`1 baseUriTask, CancellationToken applicationStoppingToken, Boolean proxy404s)
+   at Microsoft.AspNetCore.Builder.SpaProxyingExtensions.<>c__DisplayClass2_0.<<UseProxyToSpaDevelopmentServer>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-11-18T15:23:54.1704290+01:00  [INF] Now listening on: "https://localhost:5001" (d826f4b8)
+2022-11-18T15:23:54.2547510+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2022-11-18T15:23:54.2847550+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-11-18T15:23:54.2891410+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-11-18T15:23:54.2924280+01:00  [INF] Content root path: "/Users/miriam/Documents/Skole/ITPE3200 - Webapplikasjoner/Gruppeoppgave2/Kunde-SPA-Routing/Kunde-SPA-Routing" (b5d60022)
+2022-11-18T15:23:54.5683550+01:00  [ERR] sh: /Users/miriam/Documents/Skole/ITPE3200 - Webapplikasjoner/Gruppeoppgave2/Kunde-SPA-Routing/Kunde-SPA-Routing/ClientApp/node_modules/.bin/ng: Permission denied
+ (8c886dd4)
+2022-11-18T15:23:55.7770560+01:00 0HMM9E22R2O9E:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.AggregateException: One or more errors occurred. (One or more errors occurred. (The NPM script 'start' exited without indicating that the Angular CLI was listening for requests. The error output was: sh: /Users/miriam/Documents/Skole/ITPE3200 - Webapplikasjoner/Gruppeoppgave2/Kunde-SPA-Routing/Kunde-SPA-Routing/ClientApp/node_modules/.bin/ng: Permission denied
+
+))
+ ---> System.AggregateException: One or more errors occurred. (The NPM script 'start' exited without indicating that the Angular CLI was listening for requests. The error output was: sh: /Users/miriam/Documents/Skole/ITPE3200 - Webapplikasjoner/Gruppeoppgave2/Kunde-SPA-Routing/Kunde-SPA-Routing/ClientApp/node_modules/.bin/ng: Permission denied
+
+)
+ ---> System.InvalidOperationException: The NPM script 'start' exited without indicating that the Angular CLI was listening for requests. The error output was: sh: /Users/miriam/Documents/Skole/ITPE3200 - Webapplikasjoner/Gruppeoppgave2/Kunde-SPA-Routing/Kunde-SPA-Routing/ClientApp/node_modules/.bin/ng: Permission denied
+
+
+ ---> System.IO.EndOfStreamException: Attempted to read past the end of the stream.
+   at Microsoft.AspNetCore.SpaServices.AngularCli.AngularCliMiddleware.StartAngularCliServerAsync(String sourcePath, String npmScriptName, ILogger logger)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.SpaServices.AngularCli.AngularCliMiddleware.StartAngularCliServerAsync(String sourcePath, String npmScriptName, ILogger logger)
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at Microsoft.AspNetCore.SpaServices.AngularCli.AngularCliMiddleware.<>c.<Attach>b__2_0(Task`1 task)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at Microsoft.AspNetCore.SpaServices.Extensions.Util.TaskTimeoutExtensions.WithTimeout[T](Task`1 task, TimeSpan timeoutDelay, String message)
+   at Microsoft.AspNetCore.SpaServices.Extensions.Proxy.SpaProxy.PerformProxyRequest(HttpContext context, HttpClient httpClient, Task`1 baseUriTask, CancellationToken applicationStoppingToken, Boolean proxy404s)
+   at Microsoft.AspNetCore.Builder.SpaProxyingExtensions.<>c__DisplayClass2_0.<<UseProxyToSpaDevelopmentServer>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-11-18T15:38:30.5518010+01:00  [ERR] sh: /Users/miriam/Documents/Skole/ITPE3200 - Webapplikasjoner/Gruppeoppgave2/Kunde-SPA-Routing/Kunde-SPA-Routing/ClientApp/node_modules/.bin/ng: Permission denied
+ (8c886dd4)
+2022-11-18T15:38:30.6519480+01:00  [ERR] npm ERR! code ELIFECYCLE
+ (76992f4c)
+2022-11-18T15:38:30.8691140+01:00  [INF] Now listening on: "https://localhost:5001" (d826f4b8)
+2022-11-18T15:38:30.8960440+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2022-11-18T15:38:30.9256030+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-11-18T15:38:30.9523390+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-11-18T15:38:30.9788430+01:00  [INF] Content root path: "/Users/miriam/Documents/Skole/ITPE3200 - Webapplikasjoner/Gruppeoppgave2/Kunde-SPA-Routing/Kunde-SPA-Routing" (b5d60022)
+2022-11-18T15:38:32.5716160+01:00 0HMM9EA85PSQ9:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.AggregateException: One or more errors occurred. (One or more errors occurred. (The NPM script 'start' exited without indicating that the Angular CLI was listening for requests. The error output was: ))
+ ---> System.AggregateException: One or more errors occurred. (The NPM script 'start' exited without indicating that the Angular CLI was listening for requests. The error output was: )
+ ---> System.InvalidOperationException: The NPM script 'start' exited without indicating that the Angular CLI was listening for requests. The error output was: 
+ ---> System.IO.EndOfStreamException: Attempted to read past the end of the stream.
+   at Microsoft.AspNetCore.SpaServices.AngularCli.AngularCliMiddleware.StartAngularCliServerAsync(String sourcePath, String npmScriptName, ILogger logger)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.SpaServices.AngularCli.AngularCliMiddleware.StartAngularCliServerAsync(String sourcePath, String npmScriptName, ILogger logger)
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at Microsoft.AspNetCore.SpaServices.AngularCli.AngularCliMiddleware.<>c.<Attach>b__2_0(Task`1 task)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at Microsoft.AspNetCore.SpaServices.Extensions.Util.TaskTimeoutExtensions.WithTimeout[T](Task`1 task, TimeSpan timeoutDelay, String message)
+   at Microsoft.AspNetCore.SpaServices.Extensions.Proxy.SpaProxy.PerformProxyRequest(HttpContext context, HttpClient httpClient, Task`1 baseUriTask, CancellationToken applicationStoppingToken, Boolean proxy404s)
+   at Microsoft.AspNetCore.Builder.SpaProxyingExtensions.<>c__DisplayClass2_0.<<UseProxyToSpaDevelopmentServer>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-11-18T15:39:11.7907970+01:00  [ERR] sh: /Users/miriam/Documents/Skole/ITPE3200 - Webapplikasjoner/Gruppeoppgave2/Kunde-SPA-Routing/Kunde-SPA-Routing/ClientApp/node_modules/.bin/ng: Permission denied
+ (8c886dd4)
+2022-11-18T15:39:11.9247480+01:00  [ERR] npm ERR! code ELIFECYCLE
+ (76992f4c)
+2022-11-18T15:39:12.0743820+01:00  [INF] Now listening on: "https://localhost:5001" (d826f4b8)
+2022-11-18T15:39:12.1018600+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2022-11-18T15:39:12.1578350+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-11-18T15:39:12.1860600+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-11-18T15:39:12.2129400+01:00  [INF] Content root path: "/Users/miriam/Documents/Skole/ITPE3200 - Webapplikasjoner/Gruppeoppgave2/Kunde-SPA-Routing/Kunde-SPA-Routing" (b5d60022)
+2022-11-18T15:39:13.8430360+01:00 0HMM9EAKEL7I2:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.AggregateException: One or more errors occurred. (One or more errors occurred. (The NPM script 'start' exited without indicating that the Angular CLI was listening for requests. The error output was: ))
+ ---> System.AggregateException: One or more errors occurred. (The NPM script 'start' exited without indicating that the Angular CLI was listening for requests. The error output was: )
+ ---> System.InvalidOperationException: The NPM script 'start' exited without indicating that the Angular CLI was listening for requests. The error output was: 
+ ---> System.IO.EndOfStreamException: Attempted to read past the end of the stream.
+   at Microsoft.AspNetCore.SpaServices.AngularCli.AngularCliMiddleware.StartAngularCliServerAsync(String sourcePath, String npmScriptName, ILogger logger)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.SpaServices.AngularCli.AngularCliMiddleware.StartAngularCliServerAsync(String sourcePath, String npmScriptName, ILogger logger)
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at Microsoft.AspNetCore.SpaServices.AngularCli.AngularCliMiddleware.<>c.<Attach>b__2_0(Task`1 task)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at Microsoft.AspNetCore.SpaServices.Extensions.Util.TaskTimeoutExtensions.WithTimeout[T](Task`1 task, TimeSpan timeoutDelay, String message)
+   at Microsoft.AspNetCore.SpaServices.Extensions.Proxy.SpaProxy.PerformProxyRequest(HttpContext context, HttpClient httpClient, Task`1 baseUriTask, CancellationToken applicationStoppingToken, Boolean proxy404s)
+   at Microsoft.AspNetCore.Builder.SpaProxyingExtensions.<>c__DisplayClass2_0.<<UseProxyToSpaDevelopmentServer>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-11-18T15:39:45.0952950+01:00 0HMM9EAKEL7I2:00000002 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.AggregateException: One or more errors occurred. (One or more errors occurred. (The NPM script 'start' exited without indicating that the Angular CLI was listening for requests. The error output was: ))
+ ---> System.AggregateException: One or more errors occurred. (The NPM script 'start' exited without indicating that the Angular CLI was listening for requests. The error output was: )
+ ---> System.InvalidOperationException: The NPM script 'start' exited without indicating that the Angular CLI was listening for requests. The error output was: 
+ ---> System.IO.EndOfStreamException: Attempted to read past the end of the stream.
+   at Microsoft.AspNetCore.SpaServices.AngularCli.AngularCliMiddleware.StartAngularCliServerAsync(String sourcePath, String npmScriptName, ILogger logger)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.SpaServices.AngularCli.AngularCliMiddleware.StartAngularCliServerAsync(String sourcePath, String npmScriptName, ILogger logger)
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at Microsoft.AspNetCore.SpaServices.AngularCli.AngularCliMiddleware.<>c.<Attach>b__2_0(Task`1 task)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at Microsoft.AspNetCore.SpaServices.Extensions.Util.TaskTimeoutExtensions.WithTimeout[T](Task`1 task, TimeSpan timeoutDelay, String message)
+   at Microsoft.AspNetCore.SpaServices.Extensions.Proxy.SpaProxy.PerformProxyRequest(HttpContext context, HttpClient httpClient, Task`1 baseUriTask, CancellationToken applicationStoppingToken, Boolean proxy404s)
+   at Microsoft.AspNetCore.Builder.SpaProxyingExtensions.<>c__DisplayClass2_0.<<UseProxyToSpaDevelopmentServer>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-11-18T15:42:43.4305340+01:00  [INF] Now listening on: "https://localhost:5001" (d826f4b8)
+2022-11-18T15:42:43.4648110+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2022-11-18T15:42:43.4954920+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-11-18T15:42:43.5225080+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-11-18T15:42:43.5468200+01:00  [INF] Content root path: "/Users/miriam/Documents/Skole/ITPE3200 - Webapplikasjoner/Gruppeoppgave2/Kunde-SPA-Routing/Kunde-SPA-Routing" (b5d60022)
+2022-11-18T15:44:09.3866860+01:00  [INF] Now listening on: "https://localhost:5001" (d826f4b8)
+2022-11-18T15:44:09.4469210+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2022-11-18T15:44:09.4522030+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-11-18T15:44:09.4792700+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-11-18T15:44:09.5011240+01:00  [INF] Content root path: "/Users/miriam/Documents/Skole/ITPE3200 - Webapplikasjoner/Gruppeoppgave2/Kunde-SPA-Routing/Kunde-SPA-Routing" (b5d60022)
+2022-11-18T15:46:11.1541860+01:00  [INF] Now listening on: "https://localhost:5001" (d826f4b8)
+2022-11-18T15:46:11.1911520+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2022-11-18T15:46:11.2451390+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-11-18T15:46:11.2726210+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-11-18T15:46:11.3241230+01:00  [INF] Content root path: "/Users/miriam/Documents/Skole/ITPE3200 - Webapplikasjoner/Gruppeoppgave2/Kunde-SPA-Routing/Kunde-SPA-Routing" (b5d60022)
+2022-11-18T16:00:41.5883260+01:00 0HMM9EEHALN91:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.Net.WebSockets.WebSocketException (0x80004005): The WebSocket is in an invalid state ('Aborted') for this operation. Valid states are: 'Open, CloseReceived'
+   at System.Net.WebSockets.WebSocketValidate.ThrowIfInvalidState(WebSocketState currentState, Boolean isDisposed, WebSocketState[] validStates)
+   at System.Net.WebSockets.ManagedWebSocket.CloseOutputAsyncCore(WebSocketCloseStatus closeStatus, String statusDescription, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.SpaServices.Extensions.Proxy.SpaProxy.PumpWebSocket(WebSocket source, WebSocket destination, Int32 bufferSize, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.SpaServices.Extensions.Proxy.SpaProxy.AcceptProxyWebSocketRequest(HttpContext context, Uri destinationUri, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.SpaServices.Extensions.Proxy.SpaProxy.PerformProxyRequest(HttpContext context, HttpClient httpClient, Task`1 baseUriTask, CancellationToken applicationStoppingToken, Boolean proxy404s)
+   at Microsoft.AspNetCore.Builder.SpaProxyingExtensions.<>c__DisplayClass2_0.<<UseProxyToSpaDevelopmentServer>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2022-11-18T16:00:41.6276710+01:00 0HMM9EEHALN91:00000001 [WRN] The response has already started, the error page middleware will not be executed. (e1dd4c0d)
+2022-11-18T16:00:42.1800660+01:00 0HMM9EEHALN91:00000001 [ERR] Connection id ""0HMM9EEHALN91"", Request id ""0HMM9EEHALN91:00000001"": An unhandled exception was thrown by the application. (560e7d32)
+System.Net.WebSockets.WebSocketException (0x80004005): The WebSocket is in an invalid state ('Aborted') for this operation. Valid states are: 'Open, CloseReceived'
+   at System.Net.WebSockets.WebSocketValidate.ThrowIfInvalidState(WebSocketState currentState, Boolean isDisposed, WebSocketState[] validStates)
+   at System.Net.WebSockets.ManagedWebSocket.CloseOutputAsyncCore(WebSocketCloseStatus closeStatus, String statusDescription, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.SpaServices.Extensions.Proxy.SpaProxy.PumpWebSocket(WebSocket source, WebSocket destination, Int32 bufferSize, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.SpaServices.Extensions.Proxy.SpaProxy.AcceptProxyWebSocketRequest(HttpContext context, Uri destinationUri, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.SpaServices.Extensions.Proxy.SpaProxy.PerformProxyRequest(HttpContext context, HttpClient httpClient, Task`1 baseUriTask, CancellationToken applicationStoppingToken, Boolean proxy404s)
+   at Microsoft.AspNetCore.Builder.SpaProxyingExtensions.<>c__DisplayClass2_0.<<UseProxyToSpaDevelopmentServer>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
