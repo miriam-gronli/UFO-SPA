@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UFO-SPA", "UFO-SPA\UFO-SPA.csproj", "{ACB74181-4626-457D-8F75-254055E59D08}"
 EndProject
+Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "UFOtest", "UFOtestController\UFOtest.csproj", "{456547AD-B64A-4974-95F3-F0DDA928AC93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UFO-Test", "UFO-Test\UFO-Test.csproj", "{308F703B-D8BC-4F6D-A818-A2DF3D322D5C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,5 +17,13 @@ Global
 		{ACB74181-4626-457D-8F75-254055E59D08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACB74181-4626-457D-8F75-254055E59D08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACB74181-4626-457D-8F75-254055E59D08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{456547AD-B64A-4974-95F3-F0DDA928AC93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{456547AD-B64A-4974-95F3-F0DDA928AC93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{456547AD-B64A-4974-95F3-F0DDA928AC93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{456547AD-B64A-4974-95F3-F0DDA928AC93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{308F703B-D8BC-4F6D-A818-A2DF3D322D5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{308F703B-D8BC-4F6D-A818-A2DF3D322D5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{308F703B-D8BC-4F6D-A818-A2DF3D322D5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{308F703B-D8BC-4F6D-A818-A2DF3D322D5C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
