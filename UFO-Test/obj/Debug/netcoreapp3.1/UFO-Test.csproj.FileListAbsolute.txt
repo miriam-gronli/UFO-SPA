@@ -1,0 +1,5 @@
+/Users/miriam/Documents/GitHub/UFO-SPA/UFO-Test/obj/Debug/netcoreapp3.1/UFO-Test.csproj.AssemblyReference.cache
+/Users/miriam/Documents/GitHub/UFO-SPA/UFO-Test/obj/Debug/netcoreapp3.1/UFO-Test.GeneratedMSBuildEditorConfig.editorconfig
+/Users/miriam/Documents/GitHub/UFO-SPA/UFO-Test/obj/Debug/netcoreapp3.1/UFO-Test.AssemblyInfoInputs.cache
+/Users/miriam/Documents/GitHub/UFO-SPA/UFO-Test/obj/Debug/netcoreapp3.1/UFO-Test.AssemblyInfo.cs
+/Users/miriam/Documents/GitHub/UFO-SPA/UFO-Test/obj/Debug/netcoreapp3.1/UFO-Test.csproj.CoreCompileInputs.cache

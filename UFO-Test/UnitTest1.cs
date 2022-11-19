@@ -6,28 +6,36 @@ using KundeApp2.Model;
 using Moq;
 using Xunit;
 
-namespace UFO_Test;
-
-public class UnitTest1
+namespace UFO_Test
 {
-    [Fact]
-    public async Task Lagre()
+    public class UnitTest1
     {
-        //Arrange
-        var innObservasjon = new Observasjon
+        [Fact]
+        public async Task Lagre()
         {
-            Id = 1,
-            Navn = "Test Case",
-            Postkode = "0582",
-            Beskrivelse = "OMG, det var en UFO!",
-            Dato = "19.07.21",
-            Tid = "Midnight",
-        };
+            //Arrange
+            var innObservasjon = new Observasjon
+            {
+                Id = 1,
+                Navn = "Test Case",
+                Postkode = "0582",
+                Beskrivelse = "OMG, det var en UFO!",
+                Dato = "19.07.21",
+                Tid = "Midnight",
+            };
 
-        var mock = new Mock<IObservasjonRepository>();
-        mock.Setup(o => o.Lagre(innObservasjon)).ReturnsAsync(true);
-        var observasjonController = new ObservasjonController(mock.Object);
+            var mock = new Mock<IObservasjonRepository>();
+            mock.Setup(o => o.Lagre(innObservasjon)).ReturnsAsync(true);
+            var observasjonController = new ObservasjonController(mock.Object);
 
+            //Act
+            bool resultat = await observasjonController.Lagre(innObservasjon);
+
+            //Assert
+            Assert.True(resultat);
+
+
+        }
     }
 }
 
