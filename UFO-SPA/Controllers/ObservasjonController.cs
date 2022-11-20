@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EksamenVersjon3.Model;
 using KundeApp2.DAL;
 using KundeApp2.Model;
 using Microsoft.AspNetCore.Http;
@@ -34,14 +35,14 @@ namespace KundeApp2.Controllers
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
             {
-                return Unauthorized();
+                return Unauthorized("Ikke logget inn");
             }
             if (ModelState.IsValid)
             {
                 bool returOK = await _db.Lagre(innObservasjon);
                 if (!returOK)
                 {
-                    _log.LogInformation("Observasjon kunne ikke lagres!");
+                    _log.LogInformation("Observasjon kunne ikke lagres");
                     return BadRequest("Observasjon kunne ikke lagres");
                 }
                 return Ok("En ny observasjon har blitt lagret");
@@ -55,7 +56,7 @@ namespace KundeApp2.Controllers
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
             {
-                return Unauthorized();
+                return Unauthorized("Ikke logget inn");
             }
             List<Observasjon> alleObservasjoner = await _db.HentAlle();
             return Ok(alleObservasjoner);
@@ -65,7 +66,7 @@ namespace KundeApp2.Controllers
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
             {
-                return Unauthorized();
+                return Unauthorized("Ikke logget inn");
             }
             bool returOK = await _db.Slett(id);
             if (!returOK)
@@ -81,7 +82,7 @@ namespace KundeApp2.Controllers
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
             {
-                return Unauthorized();
+                return Unauthorized("Ikke logget inn");
             }
             if (ModelState.IsValid)
             {
@@ -102,7 +103,7 @@ namespace KundeApp2.Controllers
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
             {
-                return Unauthorized();
+                return Unauthorized("Ikke logget inn");
             }
             if (ModelState.IsValid)
             {
@@ -126,7 +127,7 @@ namespace KundeApp2.Controllers
                 bool returnOK = await _db.LoggInn(bruker);
                 if (!returnOK)
                 {
-                    _log.LogInformation("Innloggingen feilet for bruker" + bruker.Brukernavn);
+                    _log.LogInformation("Innloggingen feilet for bruker " + bruker.Brukernavn);
                     HttpContext.Session.SetString(_loggetInn, "");
                     return Ok(false);
                 }

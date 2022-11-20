@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Text;
 using System.Threading.Tasks;
+using EksamenVersjon3.Model;
 using KundeApp2.Controllers;
 using KundeApp2.DAL;
 using KundeApp2.Model;
+using KundeAppTest;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Logging;
 using Moq;
 using Xunit;
@@ -14,16 +18,17 @@ using Xunit;
 namespace UFO_Test
 {
     public class ObservasjonTest
-    {
-        //private const string _loggetInn = "loggetInn";
-        //private const string _ikkeLoggetInn = "";
-
+    {        
         private readonly Mock<IObservasjonRepository> mockRep = new Mock<IObservasjonRepository>();
         private readonly Mock<ILogger<ObservasjonController>> mockLog = new Mock<ILogger<ObservasjonController>>();
 
         //Logginn
-        //private readonly Mock<HttpContext> mockHttpContext = new Mock<HttpContext>();
-        //private readonly MockHttpSession mockSession = new MockHttpSession();
+        private readonly Mock<HttpContext> mockHttpContext = new Mock<HttpContext>();
+        private readonly MockHttpSession mockSession = new MockHttpSession();
+
+        private const string _loggetInn = "loggetInn";
+        private const string _ikkeLoggetInn = "";
+
 
         //HentAlle OK
 
@@ -68,13 +73,13 @@ namespace UFO_Test
 
             var obsController = new ObservasjonController(mockRep.Object, mockLog.Object); 
 
-            //mockSession[_loggetInn] = _loggetInn;
-            //mockHttpContext.Setup(s => s.Session).Returns(mockSession);
-            //obsController.ControllerContext.HttpContext = mockHttpContext.Object;
+            mockSession[_loggetInn] = _loggetInn;
+            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
+            obsController.ControllerContext.HttpContext = mockHttpContext.Object;
 
             var resultat = await obsController.HentAlle() as OkObjectResult;
 
-            //Assert.Equal((int)HttpStatusCode.OK,resultat.StatusCode);
+            Assert.Equal((int)HttpStatusCode.OK,resultat.StatusCode);
             Assert.Equal<List<Observasjon>>((List<Observasjon>)resultat.Value, obsListe);
         }
 
@@ -98,7 +103,7 @@ namespace UFO_Test
                     Assert.(resultat.Value);
                 } */
 
-/* Loginn avhening
+
          [Fact]
          public async Task HentAlleIkkeLoggetInn()
          {
@@ -110,87 +115,105 @@ namespace UFO_Test
 
              mockSession[_loggetInn] = _ikkeLoggetInn;
              mockHttpContext.Setup(s => s.Session).Returns(mockSession);
-             kundeController.ControllerContext.HttpContext = mockHttpContext.Object;
+             obsController.ControllerContext.HttpContext = mockHttpContext.Object;
 
              // Act
              var resultat = await obsController.HentAlle() as UnauthorizedObjectResult;
 
              // Assert 
              Assert.Equal((int)HttpStatusCode.Unauthorized, resultat.StatusCode);
-             Assert.Equal("Ikke logget inn", resultat.Value);
+             Assert.Equal("Ikke logget inn", resultat.Value); //Stemmer ikke oversens med controlleren for dette resultatet. Klarer ikke å 
          }
-         */
+         
 
         [Fact]
         public async Task LagreLoggetInnOK()
         {
             //Arrange
-            /*ar innObs = new Observasjon
-            {
-                Id = 1,
-                Navn = "Test Case",
-                Postkode = "0582",
-                Beskrivelse = "OMG, det var en UFO!",
-                Dato = "19.07.21",
-                Tid = "Midnight"
-            };
-
-            var mock = new Mock<IObservasjonRepository>();
-            mock.Setup(o => o.Lagre(innObs)).ReturnsAsync(true);
-            */
             mockRep.Setup(o => o.Lagre(It.IsAny<Observasjon>())).ReturnsAsync(true);
 
             var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
 
-            //mockSession[_loggetInn] = _loggetInn;
-            //mockHttpContext.Setup(s => s.Session).Returns(mockSession);
-            //obsController.ControllerContext.HttpContext = mockHttpContext.Object;
+            mockSession[_loggetInn] = _loggetInn;
+            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
+            obsController.ControllerContext.HttpContext = mockHttpContext.Object;
 
             //Act
             var resultat = await obsController.Lagre(It.IsAny<Observasjon>()) as OkObjectResult;
 
             //Assert
 
-            //Assert.Equal((int)HttpStatusCode.OK, resultat.StatusCode);
-            Assert.Equal("Observasjon lagret", resultat.Value);
+            Assert.Equal((int)HttpStatusCode.OK, resultat.StatusCode);
+            Assert.Equal("En ny observasjon har blitt lagret", resultat.Value);
 
         }
 
-        //Lagre LoggetInnFeilModel
-
-
-        //LagreIkkeLoggetInn
-
-
-        /*LargeIkkeOK  => ?
-                         * 
-                        [Fact]
-                        public async Task LagreIkkeOK()
-                        {
-                            var innObs = new Observasjon
-                            {
-                                Id = 1,
-                                Navn = "Test Case",
-                                Postkode = "0582",
-                                Beskrivelse = "OMG, det var en UFO!",
-                                Dato = "19.07.21",
-                                Tid = "Midnight"
-                            };
-
-                            var mock = new Mock<IObservasjonRepository>();
-                            mock.Setup(o => o.Lagre(innObs)).ReturnsAsync(false);
-                            var obsController = new ObservasjonController(mock.Object);  // Husk å mocke logg her 
-                            bool resultat = await obsController.Lagre(innObs);
-                            Assert.False(resultat);
-                        }
-                        */
-
-
-        //HenteEn OK => HenteEn LoggetInn OK / Ikke endret noe fra EksamenV3
-
-        /* 
         [Fact]
-        public async Task HentEnOK()
+        public async Task LagreIkkeOK()
+        {            
+            mockRep.Setup(o => o.Lagre(It.IsAny<Observasjon>())).ReturnsAsync(false);
+
+            var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);  // Husk å mocke logg her 
+
+            mockSession[_loggetInn] = _loggetInn;
+            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
+            obsController.ControllerContext.HttpContext = mockHttpContext.Object;
+
+            var resultat = await obsController.Lagre(It.IsAny<Observasjon>()) as BadRequestObjectResult;
+
+            Assert.Equal((int)HttpStatusCode.BadRequest, resultat.StatusCode);
+            Assert.Equal("Observasjon kunne ikke lagres", resultat.Value);
+        }
+
+
+        //Lagre LoggetInnFeilModel //Feiler, usikker på hvorfor.
+
+        [Fact]
+        public async Task LagreLoggetInnFeilModel()  
+        {
+            mockRep.Setup(o => o.Lagre(It.IsAny<Observasjon>())).ReturnsAsync(true);
+
+            var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
+
+            obsController.ModelState.AddModelError("", "Feil i inputvalidering"); //Finnes det spesefike feil medlinger avhengig av hva som er feil?
+
+            mockSession[_loggetInn] = _loggetInn;
+            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
+            obsController.ControllerContext.HttpContext = mockHttpContext.Object;
+
+            var resultat = await obsController.Lagre(It.IsAny<Observasjon>()) as BadRequestObjectResult;
+
+            Assert.Equal((int)HttpStatusCode.BadRequest, resultat.StatusCode);
+            Assert.Equal("Feil i inputvalidering på server", resultat.Value);
+        }
+
+
+        //Lagre IkkeLoggetInn
+
+        [Fact]
+        public async Task LagreIkkeLoggetInn()
+        {
+            mockRep.Setup(o => o.Lagre(It.IsAny<Observasjon>())).ReturnsAsync(true);
+
+            var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
+
+            mockSession[_loggetInn] = _ikkeLoggetInn;
+            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
+            obsController.ControllerContext.HttpContext = mockHttpContext.Object;
+
+            // Act
+            var resultat = await obsController.Lagre(It.IsAny<Observasjon>()) as UnauthorizedObjectResult;
+
+            // Assert 
+            Assert.Equal((int)HttpStatusCode.Unauthorized, resultat.StatusCode);
+            Assert.Equal("Ikke logget inn", resultat.Value);
+        }
+
+
+        //HenteEn LoggetInn OK
+        
+        [Fact]
+        public async Task HentEnLoggetInnOK()
         {
             var returObs = new Observasjon
             {
@@ -201,137 +224,325 @@ namespace UFO_Test
                 Dato = "19.07.21",
                 Tid = "Midnight"
             };
+      
+            mockRep.Setup(o => o.HentEn(It.IsAny<int>())).ReturnsAsync(returObs);
 
-            var mock = new Mock<IObservasjonRepository>();
-            mock.Setup(o => o.HentEn(1)).ReturnsAsync(returObs);
-            var obsController = new ObservasjonController(mock.Object);  // Husk å mocke logg her 
-            Observasjon resultat = await obsController.HentEn(1);
-            Assert.Equal<Observasjon>(returObs, resultat);
+            var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
 
+            mockSession[_loggetInn] = _loggetInn;
+            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
+            obsController.ControllerContext.HttpContext = mockHttpContext.Object;
+
+            // Act
+            var resultat = await obsController.HentEn(It.IsAny<int>()) as OkObjectResult;
+
+            // Assert 
+            Assert.Equal((int)HttpStatusCode.OK, resultat.StatusCode);
+            Assert.Equal<Observasjon>(returObs, (Observasjon)resultat.Value);
         }
-        */
-
-        //HenteEn IkkeOK => HenteEn LoggetInn IkkeOK / Ikke endret noe fra EksamenV3
-
-        /*
-         [Fact]
-        public async Task HentEnIkkeOK()
-        {
-            var returObs = new Observasjon
-            {
-                Id = 1,
-                Navn = "Test Case",
-                Postkode = "0582",
-                Beskrivelse = "OMG, det var en UFO!",
-                Dato = "19.07.21",
-                Tid = "Midnight"
-            };
-
-            var mock = new Mock<IObservasjonRepository>();
-            mock.Setup(o => o.HentEn(1)).ReturnsAsync(returObs);
-            var obsController = new ObservasjonController(mock.Object);  // Husk å mocke logg her 
-            Observasjon resultat = await obsController.HentEn(1);
-            Assert.Equal<Observasjon>(returObs, resultat);
-
-        }
-         */
-
-        //Slett OK => SlettLoggetInnOK / Ikke endret noe fra EksamenV3
-
-        /*
-         [Fact]
-        public async Task SlettOK()
-        {
-            var mock = new Mock<IObservasjonRepository>();
-            mock.Setup(o => o.Slett(1)).ReturnsAsync(true);
-            var obsController = new ObservasjonController(mock.Object);  // Husk å mocke logg her
-            bool resultat = await obsController.Slett(1);
-            Assert.True(resultat);
-        }
-         */
 
 
-        //SlettIkkeOK => SlettLoggetInnOk / Ikke endret noe fra EksamenV3
+        //HenteEn LoggetInn IkkeOK
 
-        /*
         [Fact]
-        public async Task SlettIkkeOK()
+        public async Task HentEnLoggetInnIkkeOK()
         {
-            var mock = new Mock<IObservasjonRepository>();
-            mock.Setup(o => o.Slett(1)).ReturnsAsync(false);
-            var obsController = new ObservasjonController(mock.Object);  // Husk å mocke logg her
-            bool resultat = await obsController.Slett(1);
-            Assert.False(resultat);
-        } 
-        */
+            // Arrange
 
-        //SletteIkkeLoggetInn 
+            mockRep.Setup(o => o.HentEn(It.IsAny<int>())).ReturnsAsync(() => null);
 
+            var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
 
+            mockSession[_loggetInn] = _loggetInn;
+            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
+            obsController.ControllerContext.HttpContext = mockHttpContext.Object;
 
-        //Endre OK => EndreLoggetInnOK / Ikke endret noe fra EksamenV3
+            // Act
+            var resultat = await obsController.HentEn(It.IsAny<int>()) as NotFoundObjectResult;
 
-        /*
-         [Fact]
-        public async Task EndreOK()
-        {
-            var innObs = new Observasjon
-            {
-                Id = 1,
-                Navn = "Test Case",
-                Postkode = "0582",
-                Beskrivelse = "OMG, det var en UFO!",
-                Dato = "19.07.21",
-                Tid = "Midnight"
-            };
-
-            var mock = new Mock<IObservasjonRepository>();
-            mock.Setup(o => o.Endre(innObs)).ReturnsAsync(true);
-            var obsController = new ObservasjonController(mock.Object); //Huske logg
-            bool resultat = await obsController.Endre(innObs);
-            Assert.True(resultat);
+            // Assert 
+            Assert.Equal((int)HttpStatusCode.NotFound, resultat.StatusCode);
+            Assert.Equal("Fant ikke observasjonen", resultat.Value);
         }
-         */
 
 
+        //HenteEn Ikke Logget inn.
 
-        //Endre IkkeOK => EndreLoggetInnIkkeOK / Ikke endret noe fra EksamenV3
-
-        /*
         [Fact]
-        public async Task EndreIkkeOK()
+        public async Task HentEnIkkeLoggetInn()
         {
-            var innObs = new Observasjon
-            {
-                Id = 1,
-                Navn = "Test Case",
-                Postkode = "0582",
-                Beskrivelse = "OMG, det var en UFO!",
-                Dato = "19.07.21",
-                Tid = "Midnight"
-            };
+            mockRep.Setup(o => o.HentEn(It.IsAny<int>())).ReturnsAsync(() => null);
 
-            var mock = new Mock<IObservasjonRepository>();
-            mock.Setup(o => o.Endre(innObs)).ReturnsAsync(false);
-            var obsController = new ObservasjonController(mock.Object); //Huske logg
-            bool resultat = await obsController.Endre(innObs);
-            Assert.False(resultat);
+            var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
+
+            mockSession[_loggetInn] = _ikkeLoggetInn;
+            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
+            obsController.ControllerContext.HttpContext = mockHttpContext.Object;
+
+            // Act
+            var resultat = await obsController.HentEn(It.IsAny<int>()) as UnauthorizedObjectResult;
+
+            // Assert 
+            Assert.Equal((int)HttpStatusCode.Unauthorized, resultat.StatusCode);
+            Assert.Equal("Ikke logget inn", resultat.Value);
         }
 
-         */
+
+        //Slett LoggetInn OK
+
+        [Fact]
+        public async Task SlettLoggetInnOK()
+        {
+            // Arrange
+
+            mockRep.Setup(o => o.Slett(It.IsAny<int>())).ReturnsAsync(true);
+
+            var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
+
+            mockSession[_loggetInn] = _loggetInn;
+            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
+            obsController.ControllerContext.HttpContext = mockHttpContext.Object;
+
+            // Act
+            var resultat = await obsController.Slett(It.IsAny<int>()) as OkObjectResult;
+
+            // Assert 
+            Assert.Equal((int)HttpStatusCode.OK, resultat.StatusCode);
+            Assert.Equal("Observasjon slettet", resultat.Value);
+        }
 
 
-        //EndreLoggetInnFeilModel() 
+        //Slett LoggetInn IkkeOK
 
-        //EndreIkkeLoggetInn()
+        [Fact]
+        public async Task SlettLoggetInnIkkeOK()
+        {
+            // Arrange
 
-        //LoggInnOK()
+            mockRep.Setup(o => o.Slett(It.IsAny<int>())).ReturnsAsync(false);
 
-        //LoggInnFeilPassordEllerBruker()
+            var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
 
-        //LoggInnInputFeil()
+            mockSession[_loggetInn] = _loggetInn;
+            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
+            obsController.ControllerContext.HttpContext = mockHttpContext.Object;
 
-        //LoggUt()
+            // Act
+            var resultat = await obsController.Slett(It.IsAny<int>()) as NotFoundObjectResult;
+
+            // Assert 
+            Assert.Equal((int)HttpStatusCode.NotFound, resultat.StatusCode);
+            Assert.Equal("Sletting av observasjon ble ikke utført", resultat.Value);
+        }
+
+
+        //Slette IkkeLoggetInn 
+
+        [Fact]
+        public async Task SletteIkkeLoggetInn()
+        {
+            mockRep.Setup(o => o.Slett(It.IsAny<int>())).ReturnsAsync(true);
+
+            var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
+
+            mockSession[_loggetInn] = _ikkeLoggetInn;
+            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
+            obsController.ControllerContext.HttpContext = mockHttpContext.Object;
+
+            // Act
+            var resultat = await obsController.Slett(It.IsAny<int>()) as UnauthorizedObjectResult;
+
+            // Assert 
+            Assert.Equal((int)HttpStatusCode.Unauthorized, resultat.StatusCode);
+            Assert.Equal("Ikke logget inn", resultat.Value);
+        }
+
+
+        //Endre LoggetInn OK 
+
+        [Fact]
+        public async Task EndreLoggetInnOK()
+        {
+            // Arrange
+
+            mockRep.Setup(o => o.Endre(It.IsAny<Observasjon>())).ReturnsAsync(true);
+
+            var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
+
+            mockSession[_loggetInn] = _loggetInn;
+            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
+            obsController.ControllerContext.HttpContext = mockHttpContext.Object;
+
+            // Act
+            var resultat = await obsController.Endre(It.IsAny<Observasjon>()) as OkObjectResult;
+
+            // Assert 
+            Assert.Equal((int)HttpStatusCode.OK, resultat.StatusCode);
+            Assert.Equal("Observasjon endret", resultat.Value);
+        }
+
+
+        //Endre LoggetInn IkkeOK       
+
+        [Fact]
+        public async Task EndreLoggetInnIkkeOK()
+        {
+            // Arrange
+
+            mockRep.Setup(o => o.Lagre(It.IsAny<Observasjon>())).ReturnsAsync(false);
+
+            var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
+
+            mockSession[_loggetInn] = _loggetInn;
+            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
+            obsController.ControllerContext.HttpContext = mockHttpContext.Object;
+
+            // Act
+            var resultat = await obsController.Endre(It.IsAny<Observasjon>()) as NotFoundObjectResult;
+
+            // Assert 
+            Assert.Equal((int)HttpStatusCode.NotFound, resultat.StatusCode);
+            Assert.Equal("Endringen av observasjonen kunne ikke utføres", resultat.Value);
+        }
+
+
+        //Endre LoggetInn FeilModel 
+
+        [Fact]
+        public async Task EndreLoggetInnFeilModel()
+        {
+            mockRep.Setup(o => o.Endre(It.IsAny<Observasjon>())).ReturnsAsync(true);
+
+            var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
+
+            obsController.ModelState.AddModelError("", "Feil i inputvalidering på server");
+
+            mockSession[_loggetInn] = _loggetInn;
+            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
+            obsController.ControllerContext.HttpContext = mockHttpContext.Object;
+
+            // Act
+            var resultat = await obsController.Endre(It.IsAny<Observasjon>()) as BadRequestObjectResult;
+
+            // Assert 
+            Assert.Equal((int)HttpStatusCode.BadRequest, resultat.StatusCode);
+            Assert.Equal("Feil i inputvalidering på server", resultat.Value);
+        }
+
+
+        //Endre IkkeLogget Inn
+
+        [Fact]
+        public async Task EndreIkkeLoggetInn()
+        {
+            mockRep.Setup(o => o.Endre(It.IsAny<Observasjon>())).ReturnsAsync(true);
+
+            var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
+
+            mockSession[_loggetInn] = _ikkeLoggetInn;
+            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
+            obsController.ControllerContext.HttpContext = mockHttpContext.Object;
+
+            // Act
+            var resultat = await obsController.Endre(It.IsAny<Observasjon>()) as UnauthorizedObjectResult;
+
+            // Assert 
+            Assert.Equal((int)HttpStatusCode.Unauthorized, resultat.StatusCode);
+            Assert.Equal("Ikke logget inn", resultat.Value);
+        }
+
+
+        //LoggInn OK
+
+        [Fact]
+        public async Task LoggInnOK()
+        {
+            mockRep.Setup(o => o.LoggInn(It.IsAny<Bruker>())).ReturnsAsync(true);
+
+            var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
+
+            mockSession[_loggetInn] = _loggetInn;
+            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
+            obsController.ControllerContext.HttpContext = mockHttpContext.Object;
+
+            // Act
+            var resultat = await obsController.LoggInn(It.IsAny<Bruker>()) as OkObjectResult;
+
+            // Assert 
+            Assert.Equal((int)HttpStatusCode.OK, resultat.StatusCode);
+            Assert.True((bool)resultat.Value);
+        }
+
+        //LoggInn FeilPassordEllerBruker - Feil fordi outputen er anderledes, usikker på hvordan endre det her.
+
+        [Fact]
+        public async Task LoggInnFeilPassordEllerBruker()
+        {
+
+            var returBruker = new Bruker
+            {
+                Brukernavn = "Test Case",
+                Passord = "SuperSafe"
+            };
+
+            mockRep.Setup(k => k.LoggInn(It.IsAny<Bruker>())).ReturnsAsync(false);
+
+            var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
+
+            mockSession[_loggetInn] = _ikkeLoggetInn;
+            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
+            obsController.ControllerContext.HttpContext = mockHttpContext.Object;
+
+            // Act
+            var resultat = await obsController.LoggInn(It.IsAny<Bruker>()) as OkObjectResult;
+
+            // Assert 
+            Assert.Equal((int)HttpStatusCode.OK, resultat.StatusCode);
+            Assert.Equal("Innloggingen feilet for bruker " + returBruker.Brukernavn, resultat.Value);
+        }
+
+
+        //Logg Inn Input Feil
+
+        [Fact]
+        public async Task LoggInnInputFeil()
+        {
+            mockRep.Setup(o => o.LoggInn(It.IsAny<Bruker>())).ReturnsAsync(true);
+
+            var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
+
+            obsController.ModelState.AddModelError("Brukernavn", "Feil i inputvalidering på server");
+
+            mockSession[_loggetInn] = _loggetInn;
+            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
+            obsController.ControllerContext.HttpContext = mockHttpContext.Object;
+
+            // Act
+            var resultat = await obsController.LoggInn(It.IsAny<Bruker>()) as BadRequestObjectResult;
+
+            // Assert 
+            Assert.Equal((int)HttpStatusCode.BadRequest, resultat.StatusCode);
+            Assert.Equal("Feil i inputvalidering på server", resultat.Value);
+        }
+
+
+        //LoggUt
+
+        [Fact]
+        public void LoggUt()
+        {
+            var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
+
+            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
+            mockSession[_loggetInn] = _loggetInn;
+            obsController.ControllerContext.HttpContext = mockHttpContext.Object;
+
+            // Act
+            obsController.LoggUt();
+
+            // Assert
+            Assert.Equal(_ikkeLoggetInn, mockSession[_loggetInn]);
+        }
 
     }
 }
