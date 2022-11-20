@@ -485,7 +485,7 @@ namespace UFO_Test
                 Passord = "SuperSafe"
             };
 
-            mockRep.Setup(k => k.LoggInn(It.IsAny<Bruker>())).ReturnsAsync(false);
+            mockRep.Setup(k => k.LoggInn(returBruker)).ReturnsAsync(false);
 
             var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
 
@@ -494,11 +494,11 @@ namespace UFO_Test
             obsController.ControllerContext.HttpContext = mockHttpContext.Object;
 
             // Act
-            var resultat = await obsController.LoggInn(It.IsAny<Bruker>()) as OkObjectResult;
+            var resultat = await obsController.LoggInn(returBruker) as OkObjectResult;
 
             // Assert 
             Assert.Equal((int)HttpStatusCode.OK, resultat.StatusCode);
-            Assert.Equal("Innloggingen feilet for bruker " + returBruker.Brukernavn, resultat.Value);
+            Assert.False((bool) resultat.Value);
         }
 
 
