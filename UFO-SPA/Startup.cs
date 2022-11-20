@@ -29,8 +29,18 @@ namespace Kunde_SPA
             services.AddDbContext<ObservasjonContext>(options =>
                             options.UseSqlite("Data Source=Observasjon.db"));
             services.AddScoped<IObservasjonRepository, ObservasjonRepository>();
-            
-          // In production, the Angular files will be served from this directory
+
+            //Denne koden er hentet fra "Startup.cs" mappen som igjen ligger under mappen "KundeApp2-med-logginn-sessions" hentet fra canvas
+            services.AddSession(options =>
+            {
+                options.Cookie.Name = ".AdventureWorks.Session";
+                options.IdleTimeout = TimeSpan.FromSeconds(1800); // 30 minutter
+                options.Cookie.IsEssential = true;
+            });
+            // Denne må også være med:
+            services.AddDistributedMemoryCache();
+
+            // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/dist";
@@ -44,7 +54,7 @@ namespace Kunde_SPA
             {
                 app.UseDeveloperExceptionPage();
                 loggerFactory.AddFile("Logs/ObservasjonerLog.txt");
-                DBInit.Seed(app); // denne m? fjernes dersom vi vil beholde dataene i databasen og ikke initialisere 
+                //DBInit.Seed(app); // denne m? fjernes dersom vi vil beholde dataene i databasen og ikke initialisere 
             }
             else
             {
@@ -61,6 +71,8 @@ namespace Kunde_SPA
             }
 
             app.UseRouting();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
