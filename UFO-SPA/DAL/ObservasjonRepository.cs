@@ -1,23 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
+using EksamenVersjon3.Model;
 using KundeApp2.Model;
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace KundeApp2.DAL
 {
     //Denne klassen er hentet fra KundeApp2-med-DB filen i KundeApp2-med-DAL mappen fra canvas
-    public class ObservasjonRepository : IObservasjonRepository //Klasse for å initiere CRUD metodene
+    public class ObservasjonRepository : IObservasjonRepository //Klasse for � initiere CRUD metodene
     {
         private readonly ObservasjonContext _db; //Inititerer db varaiabel gjennom kontekst klassen
 
-        public ObservasjonRepository(ObservasjonContext db) //Dependency Injection av ObservasjonContekst
+        private ILogger<ObservasjonRepository> _log;
+
+        public ObservasjonRepository(ObservasjonContext db, ILogger<ObservasjonRepository> log) //Dependency Injection av ObservasjonContekst
         {
             _db = db;
+            _log = log;
+
         }
 
-        public async Task<bool> Lagre(Observasjon innObservasjon) //Lagre metode for å lagre data i databasen
+        public async Task<bool> Lagre(Observasjon innObservasjon) //Lagre metode for � lagre data i databasen
         {
             try
             {
@@ -90,7 +98,7 @@ namespace KundeApp2.DAL
             return hentetObservasjon;
         }
 
-        public async Task<bool> Endre(Observasjon endreObservasjon) //Endre metode som endrer på dataen i databasen
+        public async Task<bool> Endre(Observasjon endreObservasjon) //Endre metode som endrer p� dataen i databasen
         {
             try
             {
@@ -107,6 +115,46 @@ namespace KundeApp2.DAL
                 return false;
             }
             return true;
+        }
+
+        //Koden under er hentet fra "DAL" mappen som igjen ligger under mappen "KundeApp2-med-hash-logginn" hentet fra canvas
+        public static byte[] LagHash(string passord, byte[] salt)
+        {
+            return KeyDerivation.Pbkdf2(
+                                password: passord,
+                                salt: salt,
+                                prf: KeyDerivationPrf.HMACSHA512,
+            iterationCount: 1000,
+                                numBytesRequested: 32);
+        }
+
+        public static byte[] LagSalt()
+        {
+            var csp = new RNGCryptoServiceProvider();
+            var salt = new byte[24];
+            csp.GetBytes(salt);
+            return salt;
+        }
+
+        public async Task<bool> LoggInn(Bruker bruker)
+        {
+            try
+            {
+                Brukere funnetBruker = await _db.Brukere.FirstOrDefaultAsync(b => b.Brukernavn == bruker.Brukernavn);
+                // sjekk passordet
+                byte[] hash = LagHash(bruker.Passord, funnetBruker.Salt);
+                bool ok = hash.SequenceEqual(funnetBruker.Passord);
+                if (ok)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception e)
+            {
+                _log.LogInformation(e.Message);
+                return false;
+            }
         }
     }
 }
