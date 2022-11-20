@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace KundeApp2.DAL
+namespace EksamenVersjon3.DAL
 {
     //Denne klassen er hentet fra KundeApp2-med-DB filen i KundeApp2-med-DAL mappen fra canvas
     public class Observasjoner //Denne klassen blir referert til dersom man oppretter data som skal bli lagt til i databasen
@@ -17,6 +17,15 @@ namespace KundeApp2.DAL
         public string Tid { get; set; }
     }
 
+    //Denne koden er hentet fra "DAL" mappen som igjen ligger under mappen "KundeApp2-med-hash-logginn" hentet fra canvas
+    public class Brukere
+    {
+        public int Id { get; set; }
+        public string Brukernavn { get; set; }
+        public byte[] Passord { get; set; }
+        public byte[] Salt { get; set; }
+    }
+
 
     public class ObservasjonContext : DbContext //Klasse som oppretter databasen fysisk dersom databasen ikke er opprettet
     {
@@ -27,6 +36,8 @@ namespace KundeApp2.DAL
         }
 
         public DbSet<Observasjoner> Observasjoner { get; set; }
+        public DbSet<Brukere> Brukere { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
