@@ -33,7 +33,7 @@ export class LoggInn {
     bruker.brukernavn = this.skjema_loggInn.value.brukernavn;
     bruker.passord = this.skjema_loggInn.value.passord;
 
-    this.http.post("/Liste", bruker)
+    this.http.post("API/EstablishAdministarator", bruker)
       .subscribe(body => {}, response => {
 
       if (response.status === 200) {
