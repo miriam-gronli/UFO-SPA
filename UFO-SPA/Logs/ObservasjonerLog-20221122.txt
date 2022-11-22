@@ -1,0 +1,5 @@
+2022-11-22T13:10:01.7647860+01:00  [INF] Now listening on: "https://localhost:5001" (d826f4b8)
+2022-11-22T13:10:01.8474290+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2022-11-22T13:10:01.8736710+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-11-22T13:10:01.8760220+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-11-22T13:10:01.9017620+01:00  [INF] Content root path: "/Users/miriam/Documents/GitHub/UFO-SPA/UFO-SPA" (b5d60022)
