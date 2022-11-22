@@ -7,15 +7,18 @@ namespace KundeApp2.Model
     {
         public int Id { get; set; }  // Id blir brukt som auto-increment i databasen
 
+
+        [RegularExpression(@"[0-9a-zA-ZøæåØÆÅ\\:_@#/,'()-. ]{2,100}")]
         public string Navn { get; set; }
-        [RegularExpression(@"[0-9a-zA-ZøæåØÆÅ\\:. ]{2,30}")]
+        [RegularExpression(@"[0-9]{4}")]
         public string Postkode { get; set; }
-        [RegularExpression(@"[0-9a-zA-ZøæåØÆÅ\\:. ]{2,30}")]
+        [RegularExpression(@"[0-9a-zA-ZøæåØÆÅ\\:_@#/,'()-. ]{2,5000}")]
         public string Beskrivelse { get; set; }
-        [RegularExpression(@"[0-9a-zA-ZøæåØÆÅ\\:. ]{2,30}")]
+        [RegularExpression(@"[0-9a-zA-ZøæåØÆÅ\\:/,-. ]{2,20}")]
         public string Dato { get; set; }
-        [RegularExpression(@"[0-9a-zA-ZøæåØÆÅ\\:. ]{2,30}")]
+        [RegularExpression(@"([01]?[0-9]|2[0-3]):[0-5][0-9]")]
         public string Tid { get; set; }
+
 
     }
 }

@@ -33,6 +33,15 @@ export class LoggInn {
     bruker.brukernavn = this.skjema_loggInn.value.brukernavn;
     bruker.passord = this.skjema_loggInn.value.passord;
 
+
+    this.http.post("api/bruker", bruker)
+      .subscribe(retur => {
+        this.router.navigate(['/liste']);
+      },
+        error => console.log(error)
+      );
+
+    /*
     this.http.post("API/EstablishAdministarator", bruker)
       .subscribe(body => {}, response => {
 
@@ -43,7 +52,8 @@ export class LoggInn {
       if (response.status === 400) {
         this.alertContent = "Kunne ikke autentisere, sjekk brukernavn og passord."
       }
-    });
+      });
+    */
   }
 }
 

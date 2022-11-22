@@ -14,19 +14,19 @@ export class Endre {
   validering = {
     id: [""],
     navn: [
-      null, Validators.compose([Validators.required, Validators.pattern("[0-9a-zA-ZøæåØÆÅ\\:. ]{2,30}")])
+      null, Validators.compose([Validators.required, Validators.pattern("[0-9a-zA-ZøæåØÆÅ\\:_@#/,'()-. ]{2,100}")])
     ],
     postkode: [
-      null, Validators.compose([Validators.required, Validators.pattern("[0-9a-zA-ZøæåØÆÅ\\:. ]{2,30}")])
+      null, Validators.compose([Validators.required, Validators.pattern("[0-9]{4}")])
     ],
     beskrivelse: [
-      null, Validators.compose([Validators.required, Validators.pattern("[0-9a-zA-ZøæåØÆÅ\\:. ]{2,30}")])
+      null, Validators.compose([Validators.required, Validators.pattern("[0-9a-zA-ZøæåØÆÅ\\:_@#/,'()-. ]{2,5000}")])
     ],
     dato: [
-      null, Validators.compose([Validators.required, Validators.pattern("[0-9a-zA-ZøæåØÆÅ\\:. ]{2,30}")])
+      null, Validators.compose([Validators.required, Validators.pattern("[0-9a-zA-ZøæåØÆÅ\\:/,-. ]{2,20}")])
     ],
     tid: [
-      null, Validators.compose([Validators.required, Validators.pattern("[0-9a-zA-ZøæåØÆÅ\\:. ]{2,30}")])
+      null, Validators.compose([Validators.required, Validators.pattern("([01]?[0-9]|2[0-3]):[0-5][0-9]")])
     ]
   }
 

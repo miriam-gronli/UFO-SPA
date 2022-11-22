@@ -31,6 +31,7 @@ namespace KundeApp2.Controllers
             _log = log;
         }
 
+        [HttpPost]
         public async Task<ActionResult> Lagre(Observasjon innObservasjon)
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
@@ -51,7 +52,7 @@ namespace KundeApp2.Controllers
             return BadRequest("Feil i inputvalidering på server");
         }
 
-
+        [HttpGet]
         public async Task<ActionResult> HentAlle()
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
@@ -67,6 +68,7 @@ namespace KundeApp2.Controllers
             return Ok(alleObservasjoner);
         }
 
+        [HttpDelete("{id}")]
         public async Task<ActionResult> Slett(int id)
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
@@ -82,7 +84,7 @@ namespace KundeApp2.Controllers
             return Ok("Observasjon slettet");
         }
 
-
+        [HttpGet("{id}")]
         public async Task<ActionResult> HentEn(int id)
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
@@ -103,7 +105,7 @@ namespace KundeApp2.Controllers
             return BadRequest("Feil i inputvalidering på server");
         }
 
-
+        [HttpPut]
         public async Task<ActionResult> Endre(Observasjon endreObservasjon)
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
@@ -124,7 +126,7 @@ namespace KundeApp2.Controllers
             return BadRequest("Feil i inputvalidering på server");
         }
 
-
+        [HttpPost]
         public async Task<ActionResult> LoggInn(Bruker bruker)
         {
             if (ModelState.IsValid)
