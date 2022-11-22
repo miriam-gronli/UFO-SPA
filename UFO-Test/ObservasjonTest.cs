@@ -35,7 +35,7 @@ namespace UFO_Test
         [Fact]
         public async Task HentAlleLoggInnOK()
         {
-
+            // Arrange
             var obs1 = new Observasjon
             {
                 Id = 1,
@@ -77,6 +77,7 @@ namespace UFO_Test
             mockHttpContext.Setup(s => s.Session).Returns(mockSession);
             obsController.ControllerContext.HttpContext = mockHttpContext.Object;
 
+            // Act
             var resultat = await obsController.HentAlle() as OkObjectResult;
 
             Assert.Equal((int)HttpStatusCode.OK,resultat.StatusCode);
@@ -88,6 +89,7 @@ namespace UFO_Test
         [Fact]
         public async Task HentAlleTomListeInnOK()
         {
+            // Arrange
             var obsListe = new List<Observasjon>();
 
             mockRep.Setup(o => o.HentAlle()).ReturnsAsync(() => null);
@@ -97,9 +99,11 @@ namespace UFO_Test
             mockHttpContext.Setup(s => s.Session).Returns(mockSession);
             obsController.ControllerContext.HttpContext = mockHttpContext.Object;
 
+            // Act
             var resultat = await obsController.HentAlle() as NotFoundObjectResult;
 
-            Assert.Equal((int)HttpStatusCode.OK,resultat.StatusCode);
+            // Assert 
+            Assert.Equal((int)HttpStatusCode.NotFound, resultat.StatusCode);
             Assert.Equal("Ingen observasjoner ble funnet", resultat.Value);
         }
 
@@ -149,7 +153,8 @@ namespace UFO_Test
 
         [Fact]
         public async Task LagreIkkeOK()
-        {            
+        {
+            // Arrange
             mockRep.Setup(o => o.Lagre(It.IsAny<Observasjon>())).ReturnsAsync(false);
 
             var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);  // Husk å mocke logg her 
@@ -158,8 +163,10 @@ namespace UFO_Test
             mockHttpContext.Setup(s => s.Session).Returns(mockSession);
             obsController.ControllerContext.HttpContext = mockHttpContext.Object;
 
+            // Act
             var resultat = await obsController.Lagre(It.IsAny<Observasjon>()) as BadRequestObjectResult;
 
+            // Assert 
             Assert.Equal((int)HttpStatusCode.BadRequest, resultat.StatusCode);
             Assert.Equal("Observasjon kunne ikke lagres", resultat.Value);
         }
@@ -170,6 +177,7 @@ namespace UFO_Test
         [Fact]
         public async Task LagreLoggetInnFeilModel()  
         {
+            // Arrange
             mockRep.Setup(o => o.Lagre(It.IsAny<Observasjon>())).ReturnsAsync(true);
 
             var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
@@ -180,8 +188,10 @@ namespace UFO_Test
             mockHttpContext.Setup(s => s.Session).Returns(mockSession);
             obsController.ControllerContext.HttpContext = mockHttpContext.Object;
 
+            // Act
             var resultat = await obsController.Lagre(It.IsAny<Observasjon>()) as BadRequestObjectResult;
 
+            // Assert 
             Assert.Equal((int)HttpStatusCode.BadRequest, resultat.StatusCode);
             Assert.Equal("Feil i inputvalidering på server", resultat.Value);
         }
@@ -192,6 +202,7 @@ namespace UFO_Test
         [Fact]
         public async Task LagreIkkeLoggetInn()
         {
+            // Arrange
             mockRep.Setup(o => o.Lagre(It.IsAny<Observasjon>())).ReturnsAsync(true);
 
             var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
@@ -214,6 +225,7 @@ namespace UFO_Test
         [Fact]
         public async Task HentEnLoggetInnOK()
         {
+            // Arrange
             var returObs = new Observasjon
             {
                 Id = 1,
@@ -247,7 +259,6 @@ namespace UFO_Test
         public async Task HentEnLoggetInnIkkeOK()
         {
             // Arrange
-
             mockRep.Setup(o => o.HentEn(It.IsAny<int>())).ReturnsAsync(() => null);
 
             var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
@@ -270,6 +281,7 @@ namespace UFO_Test
         [Fact]
         public async Task HentEnIkkeLoggetInn()
         {
+            // Arrange
             mockRep.Setup(o => o.HentEn(It.IsAny<int>())).ReturnsAsync(() => null);
 
             var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
@@ -293,7 +305,6 @@ namespace UFO_Test
         public async Task SlettLoggetInnOK()
         {
             // Arrange
-
             mockRep.Setup(o => o.Slett(It.IsAny<int>())).ReturnsAsync(true);
 
             var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
@@ -317,7 +328,6 @@ namespace UFO_Test
         public async Task SlettLoggetInnIkkeOK()
         {
             // Arrange
-
             mockRep.Setup(o => o.Slett(It.IsAny<int>())).ReturnsAsync(false);
 
             var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
@@ -340,6 +350,7 @@ namespace UFO_Test
         [Fact]
         public async Task SletteIkkeLoggetInn()
         {
+            // Arrange
             mockRep.Setup(o => o.Slett(It.IsAny<int>())).ReturnsAsync(true);
 
             var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
@@ -363,7 +374,6 @@ namespace UFO_Test
         public async Task EndreLoggetInnOK()
         {
             // Arrange
-
             mockRep.Setup(o => o.Endre(It.IsAny<Observasjon>())).ReturnsAsync(true);
 
             var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
@@ -387,7 +397,6 @@ namespace UFO_Test
         public async Task EndreLoggetInnIkkeOK()
         {
             // Arrange
-
             mockRep.Setup(o => o.Lagre(It.IsAny<Observasjon>())).ReturnsAsync(false);
 
             var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
@@ -410,6 +419,7 @@ namespace UFO_Test
         [Fact]
         public async Task EndreLoggetInnFeilModel()
         {
+            // Arrange
             mockRep.Setup(o => o.Endre(It.IsAny<Observasjon>())).ReturnsAsync(true);
 
             var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
@@ -434,6 +444,7 @@ namespace UFO_Test
         [Fact]
         public async Task EndreIkkeLoggetInn()
         {
+            // Arrange
             mockRep.Setup(o => o.Endre(It.IsAny<Observasjon>())).ReturnsAsync(true);
 
             var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
@@ -456,6 +467,7 @@ namespace UFO_Test
         [Fact]
         public async Task LoggInnOK()
         {
+            // Arrange
             mockRep.Setup(o => o.LoggInn(It.IsAny<Bruker>())).ReturnsAsync(true);
 
             var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
@@ -477,7 +489,7 @@ namespace UFO_Test
         [Fact]
         public async Task LoggInnFeilPassordEllerBruker()
         {
-
+            // Arrange
             var returBruker = new Bruker
             {
                 Brukernavn = "Test Case",
@@ -506,6 +518,7 @@ namespace UFO_Test
         [Fact]
         public async Task LoggInnInputFeil()
         {
+            // Arrange
             mockRep.Setup(o => o.LoggInn(It.IsAny<Bruker>())).ReturnsAsync(true);
 
             var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
@@ -530,6 +543,7 @@ namespace UFO_Test
         [Fact]
         public void LoggUt()
         {
+            // Arrange
             var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
 
             mockHttpContext.Setup(s => s.Session).Returns(mockSession);
