@@ -108,7 +108,6 @@ namespace UFO_Test
          public async Task HentAlleIkkeLoggetInn()
          {
              // Arrange
-
              mockRep.Setup(o => o.HentAlle()).ReturnsAsync(It.IsAny<List<Observasjon>>());
 
              var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
@@ -473,7 +472,7 @@ namespace UFO_Test
             Assert.True((bool)resultat.Value);
         }
 
-        //LoggInn FeilPassordEllerBruker - Feil fordi outputen er anderledes, usikker på hvordan endre det her.
+        //LoggInn FeilPassordEllerBruker - Feil fordi outputen er anderledes, usikker på hvordan endre det her. Hvorfor funket ikke denne med It.IsAny?
 
         [Fact]
         public async Task LoggInnFeilPassordEllerBruker()
@@ -543,7 +542,5 @@ namespace UFO_Test
             // Assert
             Assert.Equal(_ikkeLoggetInn, mockSession[_loggetInn]);
         }
-
     }
 }
-
