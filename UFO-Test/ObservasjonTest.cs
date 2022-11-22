@@ -84,24 +84,24 @@ namespace UFO_Test
         }
 
 //HentAlleTomListe
-        /* Får ikke denne til å fungere
-         *      [Fact]
-                public async Task HentAlleTomListeInnOK()
-                {
-                    var obsListe = new List<Observasjon>();
+        
+        [Fact]
+        public async Task HentAlleTomListeInnOK()
+        {
+            var obsListe = new List<Observasjon>();
 
-                    mockRep.Setup(o => o.HentAlle()).ReturnsAsync(() => null);
-                    var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);  // Husk å mocke logg her 
+            mockRep.Setup(o => o.HentAlle()).ReturnsAsync(() => null);
+            var obsController = new ObservasjonController(mockRep.Object, mockLog.Object);
 
-                    //mockSession[_loggetInn] = _loggetInn;
-                    //mockHttpContext.Setup(s => s.Session).Returns(mockSession);
-                    //obsController.ControllerContext.HttpContext = mockHttpContext.Object;
+            mockSession[_loggetInn] = _loggetInn;
+            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
+            obsController.ControllerContext.HttpContext = mockHttpContext.Object;
 
-                    var resultat = await obsController.HentAlle() as NotFoundObjectResult;
+            var resultat = await obsController.HentAlle() as NotFoundObjectResult;
 
-                    //Assert.Equal((int)HttpStatusCode.OK,resultat.StatusCode);
-                    Assert.(resultat.Value);
-                } */
+            Assert.Equal((int)HttpStatusCode.OK,resultat.StatusCode);
+            Assert.Equal("Ingen observasjoner ble funnet", resultat.Value);
+        }
 
 
          [Fact]

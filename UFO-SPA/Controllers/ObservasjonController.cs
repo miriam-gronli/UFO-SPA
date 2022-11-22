@@ -59,6 +59,11 @@ namespace KundeApp2.Controllers
                 return Unauthorized("Ikke logget inn");
             }
             List<Observasjon> alleObservasjoner = await _db.HentAlle();
+            if (alleObservasjoner == null)
+            {
+                _log.LogInformation("Ingen observasjoner ble funnet");
+                return NotFound("Ingen observasjoner ble funnet");
+            }
             return Ok(alleObservasjoner);
         }
 
