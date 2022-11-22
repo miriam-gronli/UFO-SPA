@@ -13,7 +13,7 @@ export class Lagre {
   validering = {
     id: [""],
     navn: [
-      null, Validators.compose([Validators.required, Validators.pattern("[0-9a-zA-ZøæåØÆÅ\\:_@#/,'()-. ]{2,100}")])
+      null, Validators.compose([Validators.required, Validators.pattern("[0-9a-zA-ZøæåØÆÅ\\:_@#/,'()-. ]{2,30}")])
     ],
     postkode: [
       null, Validators.compose([Validators.required, Validators.pattern("[0-9]{4}")])
