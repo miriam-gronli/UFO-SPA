@@ -23,6 +23,11 @@ namespace KundeApp2.Controllers
 
         private const string _loggetInn = "loggetInn";
 
+        //Logginn fix? 
+        private readonly string _authorizationToken = "authorizationToken";
+
+
+
         //Dependency Injection av IObservasjonRepository
         //ILogger blir tatt inn i controllern
         public ObservasjonController(IObservasjonRepository db, ILogger<ObservasjonController> log)
