@@ -3,48 +3,47 @@ import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { Observasjon } from "../Observasjon";
+import { Bruker } from "../Bruker";
 
 @Component({
   templateUrl: "loggInn.html"
 })
+
 export class LoggInn {
-  skjema: FormGroup;
+  skjema_loggInn: FormGroup;
+  alertContent: string;
 
-  validering = {
-    id: [""],
-    brukernavn: [
-      null, Validators.compose([Validators.required, Validators.pattern("[0-9a-zA-ZøæåØÆÅ\\:. ]{2,30}")])
-    ],
-    passord: [
-      null, Validators.compose([Validators.required, Validators.pattern("[0-9a-zA-ZøæåØÆÅ\\:. ]{2,30}")])
-    ]
+  formProfile = {
+    brukernavn: [null, Validators.compose([Validators.required, Validators.pattern("[a-zA-Z0-9\-_]{3,15}")])],
+    passord: [null, Validators.compose([Validators.required, Validators.pattern("[0-9A-Za-z]{4,64}")])]
   }
 
-  constructor(private http: HttpClient, private fb: FormBuilder,
-    private route: ActivatedRoute, private router: Router) {
-    this.skjema = fb.group(this.validering);
+  constructor(private http: HttpClient, private fb: FormBuilder, private router: Router) {
+    this.skjema_loggInn = fb.group(this.formProfile);
+    this.alertContent = null;
   }
 
-  vedSubmit() {
-    this.lagreObservasjon();
+  dissmissAlert() {
+    this.alertContent = null;
   }
 
-  lagreObservasjon() {
-    const lagretObservasjon = new Observasjon();
 
-    lagretObservasjon.navn = this.skjema.value.navn;
-    lagretObservasjon.postkode = this.skjema.value.postkode;
-    lagretObservasjon.beskrivelse = this.skjema.value.beskrivelse;
-    lagretObservasjon.dato = this.skjema.value.dato;
-    lagretObservasjon.tid = this.skjema.value.tid;
+  autenticate() {
+    const bruker = new Bruker();
+    bruker.brukernavn = this.skjema_loggInn.value.brukernavn;
+    bruker.passord = this.skjema_loggInn.value.passord;
 
-    this.http.post("api/observasjon", lagretObservasjon)
-      .subscribe(retur => {
-        this.router.navigate(['/liste']);
-      },
-        error => console.log(error)
-      );
-  };
+    this.http.post("API/EstablishAdministaratorToken", bruker)
+      .subscribe(body => {}, response => {
+
+      if (response.status === 200) {
+        this.router.navigate(['/Liste']);
+      }
+
+      if (response.status === 400) {
+        this.alertContent = "Kunne ikke autentisere, sjekk brukernavn og passord."
+      }
+    });
+  }
 }
 
