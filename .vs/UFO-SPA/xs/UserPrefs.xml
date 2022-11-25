@@ -1,31 +1,50 @@
 ﻿<Properties StartupConfiguration="{ACB74181-4626-457D-8F75-254055E59D08}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="UFO-SPA/ClientApp/e2e/src/app.e2e-spec.ts">
+  <DisabledProjects>
+    <String>UFOtestController/UFOtest.csproj</String>
+  </DisabledProjects>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="UFO-SPA/ClientApp/src/app/loggInn/loggInn.ts">
     <Files>
-      <File FileName="UFO-SPA/Controllers/ObservasjonController.cs" />
+      <File FileName="UFO-SPA/Controllers/ObservasjonController.cs" Line="146" Column="60" />
+      <File FileName="UFO-SPA/ClientApp/src/app/loggInn/loggInn.ts" Line="37" Column="32" />
+      <File FileName="UFO-SPA/ClientApp/src/app/liste/liste.ts" />
+      <File FileName="UFO-SPA/ClientApp/src/app/Observasjon.ts" />
+      <File FileName="UFO-SPA/Model/Observasjon.cs" />
+      <File FileName="UFO-SPA/ClientApp/src/app/app-routing.module.ts" />
+      <File FileName="UFO-SPA/DAL/IObservasjonRepository.cs" />
+      <File FileName="UFO-SPA/ClientApp/src/app/loggInn/loggInn.html" />
+      <File FileName="UFO-SPA/ClientApp/src/app/lagre/lagre.html" />
+      <File FileName="UFO-SPA/ClientApp/src/app/lagre/lagre.ts" />
+      <File FileName="UFO-SPA/ClientApp/src/app/endre/endre.html" />
+      <File FileName="UFO-SPA/ClientApp/src/app/endre/endre.ts" />
       <File FileName="UFO-Test/ObservasjonTest.cs" />
-      <File FileName="UFO-Test/MockHttpSession.cs" />
-      <File FileName="UFO-SPA/Model/Bruker.cs" />
-      <File FileName="UFO-SPA/DAL/DBInit.cs" Line="1" Column="1" />
-      <File FileName="UFO-SPA/DAL/IObservasjonRepository.cs" Line="1" Column="1" />
-      <File FileName="UFO-SPA/DAL/ObservasjonContekst.cs" Line="1" Column="1" />
-      <File FileName="UFO-SPA/DAL/ObservasjonRepository.cs" Line="1" Column="1" />
-      <File FileName="UFO-SPA/ClientApp/e2e/src/app.po.ts" Line="1" Column="1" />
-      <File FileName="UFO-SPA/ClientApp/e2e/src/app.e2e-spec.ts" Line="1" Column="1" />
+      <File FileName="UFO-SPA/DAL/ObservasjonContekst.cs" />
+      <File FileName="UFO-SPA/DAL/ObservasjonRepository.cs" />
+      <File FileName="UFO-SPA/ClientApp/src/app/app.module.ts" />
+      <File FileName="UFO-SPA/ClientApp/src/app/app.component.ts" />
+      <File FileName="UFO-SPA/ClientApp/src/app/app.component.html" />
+      <File FileName="UFO-SPA/ClientApp/src/app/Bruker.ts" />
+      <File FileName="UFO-SPA/ClientApp/e2e/src/app.e2e-spec.ts" />
+      <File FileName="UFO-SPA/ClientApp/e2e/src/app.po.ts" />
+      <File FileName="UFO-SPA/ClientApp/src/app/liste/liste.html" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="UFO-SPA" expanded="True">
             <Node name="UFO-SPA" expanded="True">
-              <Node name="ConnectedServicesFolder" selected="True" />
-              <Node name="Dependencies" expanded="True">
-                <Node name="FrameworkReferences" expanded="True" />
-                <Node name="PackageDependencies" expanded="True" />
-              </Node>
               <Node name="ClientApp" expanded="True">
                 <Node name="src" expanded="True">
                   <Node name="app" expanded="True">
-                    <Node name="loggInn" expanded="True" />
+                    <Node name="endre" expanded="True" />
+                    <Node name="lagre" expanded="True" />
+                    <Node name="liste" expanded="True" />
+                    <Node name="loggInn" expanded="True">
+                      <Node name="loggInn.ts" selected="True" />
+                    </Node>
+                    <Node name="meny" expanded="True" />
                   </Node>
                   <Node name="assets" expanded="True" />
                   <Node name="environments" expanded="True" />
@@ -33,11 +52,7 @@
               </Node>
               <Node name="Controllers" expanded="True" />
               <Node name="DAL" expanded="True" />
-              <Node name="Logs" expanded="True" />
               <Node name="Model" expanded="True" />
-              <Node name="Pages" expanded="True" />
-              <Node name="Properties" expanded="True" />
-              <Node name="wwwroot" expanded="True" />
               <Node name="appsettings.json" expanded="True" />
             </Node>
             <Node name="UFO-Test" expanded="True" />
@@ -46,19 +61,13 @@
       </Pad>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">
         <State name="__root__">
-          <Node name="UFO-SPA" expanded="True" selected="True" />
+          <Node name="UFO-SPA" expanded="True" />
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.UFO-SPA PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.UFO-SPA PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <DisabledProjects>
-    <String>UFOtestController/UFOtest.csproj</String>
-  </DisabledProjects>
 </Properties>

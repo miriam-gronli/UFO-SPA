@@ -41,8 +41,8 @@ export class LoggInn {
         error => console.log(error)
       );
 
-    /*
-    this.http.post("API/EstablishAdministarator", bruker)
+    
+    this.http.post("api/loggInn", bruker)
       .subscribe(body => {}, response => {
 
       if (response.status === 200) {
@@ -53,7 +53,7 @@ export class LoggInn {
         this.alertContent = "Kunne ikke autentisere, sjekk brukernavn og passord."
       }
       });
-    */
+    
   }
 }
 

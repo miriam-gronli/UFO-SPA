@@ -156,5 +156,22 @@ namespace KundeApp2.DAL
                 return false;
             }
         }
+
+        /*public async void HentMeta() //HentAlle metode som henter all postnr infor fra databasen
+        {
+            try
+            {
+                var infoObservasjoner = await _db.Observasjoner.GroupBy(o => o.Postkode).Select(o => new { postnr = o.Key, count = o.Count() }).ToListAsync();
+
+            }
+            catch
+            {
+                //return null;
+            }
+        }*/
+
+
     }
+
+
 }
