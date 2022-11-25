@@ -29,6 +29,7 @@
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
     <None Remove="ClientApp\src\app\loggInn\" />
     <None Remove="ClientApp\src\app\Oversikt\" />
+    <None Remove="Logs\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,6 +39,7 @@
     <Folder Include="ClientApp\src\app\meny\" />
     <Folder Include="ClientApp\src\app\loggInn\" />
     <Folder Include="ClientApp\src\app\Oversikt\" />
+    <Folder Include="Logs\" />
   </ItemGroup>
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->
