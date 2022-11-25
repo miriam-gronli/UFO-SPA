@@ -5,30 +5,49 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="UFO-SPA/ClientApp/src/app/loggInn/loggInn.ts">
+  <MonoDevelop.Ide.Workbench ActiveDocument="UFO-SPA/Model/Observasjon.cs">
     <Files>
-      <File FileName="UFO-SPA/Controllers/ObservasjonController.cs" Line="146" Column="60" />
-      <File FileName="UFO-SPA/ClientApp/src/app/loggInn/loggInn.ts" Line="37" Column="32" />
-      <File FileName="UFO-SPA/ClientApp/src/app/liste/liste.ts" />
-      <File FileName="UFO-SPA/ClientApp/src/app/Observasjon.ts" />
-      <File FileName="UFO-SPA/Model/Observasjon.cs" />
-      <File FileName="UFO-SPA/ClientApp/src/app/app-routing.module.ts" />
-      <File FileName="UFO-SPA/DAL/IObservasjonRepository.cs" />
-      <File FileName="UFO-SPA/ClientApp/src/app/loggInn/loggInn.html" />
+      <File FileName="UFO-SPA/Controllers/ObservasjonController.cs" Line="66" Column="14" />
+      <File FileName="UFO-SPA/ClientApp/src/app/loggInn/loggInn.ts" Line="36" Column="38" />
+      <File FileName="UFO-SPA/ClientApp/src/app/liste/liste.ts" Line="20" Column="1" />
+      <File FileName="UFO-SPA/ClientApp/src/app/Observasjon.ts" Line="1" Column="1" />
+      <File FileName="UFO-SPA/Model/Observasjon.cs" Line="3" Column="1" />
+      <File FileName="UFO-SPA/ClientApp/src/app/app-routing.module.ts" Line="1" Column="1" />
+      <File FileName="UFO-SPA/DAL/IObservasjonRepository.cs" Line="7" Column="11" />
+      <File FileName="UFO-SPA/ClientApp/src/app/loggInn/loggInn.html" Line="1" Column="1" />
       <File FileName="UFO-SPA/ClientApp/src/app/lagre/lagre.html" />
       <File FileName="UFO-SPA/ClientApp/src/app/lagre/lagre.ts" />
       <File FileName="UFO-SPA/ClientApp/src/app/endre/endre.html" />
       <File FileName="UFO-SPA/ClientApp/src/app/endre/endre.ts" />
-      <File FileName="UFO-Test/ObservasjonTest.cs" />
-      <File FileName="UFO-SPA/DAL/ObservasjonContekst.cs" />
-      <File FileName="UFO-SPA/DAL/ObservasjonRepository.cs" />
-      <File FileName="UFO-SPA/ClientApp/src/app/app.module.ts" />
-      <File FileName="UFO-SPA/ClientApp/src/app/app.component.ts" />
-      <File FileName="UFO-SPA/ClientApp/src/app/app.component.html" />
-      <File FileName="UFO-SPA/ClientApp/src/app/Bruker.ts" />
+      <File FileName="UFO-Test/ObservasjonTest.cs" Line="6" Column="23" />
+      <File FileName="UFO-SPA/DAL/ObservasjonContekst.cs" Line="7" Column="11" />
+      <File FileName="UFO-SPA/DAL/ObservasjonRepository.cs" Line="6" Column="23" />
+      <File FileName="UFO-SPA/ClientApp/src/app/app.module.ts" Line="1" Column="1" />
+      <File FileName="UFO-SPA/ClientApp/src/app/app.component.ts" Line="1" Column="1" />
+      <File FileName="UFO-SPA/ClientApp/src/app/app.component.html" Line="1" Column="1" />
+      <File FileName="UFO-SPA/ClientApp/src/app/Bruker.ts" Line="6" Column="1" />
       <File FileName="UFO-SPA/ClientApp/e2e/src/app.e2e-spec.ts" />
       <File FileName="UFO-SPA/ClientApp/e2e/src/app.po.ts" />
-      <File FileName="UFO-SPA/ClientApp/src/app/liste/liste.html" />
+      <File FileName="UFO-SPA/ClientApp/src/app/liste/liste.html" Line="1" Column="1" />
+      <File FileName="UFO-SPA/Model/Bruker.cs" Line="6" Column="27" />
+      <File FileName="UFO-SPA/DAL/DBInit.cs" Line="9" Column="11" />
+      <File FileName="UFO-SPA/ClientApp/tslint.json" Line="1" Column="1" />
+      <File FileName="UFO-SPA/ClientApp/tsconfig.json" Line="1" Column="1" />
+      <File FileName="UFO-SPA/ClientApp/README.md" Line="1" Column="1" />
+      <File FileName="UFO-SPA/ClientApp/src/tslint.json" Line="1" Column="1" />
+      <File FileName="UFO-SPA/ClientApp/src/tsconfig.server.json" Line="1" Column="1" />
+      <File FileName="UFO-SPA/ClientApp/src/tsconfig.app.json" Line="1" Column="1" />
+      <File FileName="UFO-SPA/ClientApp/src/test.ts" Line="1" Column="1" />
+      <File FileName="UFO-SPA/ClientApp/src/styles.css" Line="1" Column="1" />
+      <File FileName="UFO-SPA/ClientApp/src/polyfills.ts" Line="1" Column="1" />
+      <File FileName="UFO-SPA/ClientApp/src/main.ts" Line="1" Column="1" />
+      <File FileName="UFO-SPA/ClientApp/src/karma.conf.js" Line="1" Column="1" />
+      <File FileName="UFO-SPA/ClientApp/src/index.html" Line="15" Column="1" />
+      <File FileName="UFO-SPA/ClientApp/src/app/Oversikt/EmptyHtmlFile.html" Line="1" Column="2" />
+      <File FileName="UFO-SPA/ClientApp/src/app/Oversikt/EmptyTSFile.ts" Line="1" Column="1" />
+      <File FileName="UFO-SPA/ClientApp/src/app/meny/meny.html" Line="1" Column="1" />
+      <File FileName="UFO-SPA/ClientApp/src/app/meny/meny.ts" Line="1" Column="1" />
+      <File FileName="UFO-SPA/Startup.cs" Line="34" Column="13" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -38,21 +57,20 @@
               <Node name="ClientApp" expanded="True">
                 <Node name="src" expanded="True">
                   <Node name="app" expanded="True">
-                    <Node name="endre" expanded="True" />
-                    <Node name="lagre" expanded="True" />
                     <Node name="liste" expanded="True" />
-                    <Node name="loggInn" expanded="True">
-                      <Node name="loggInn.ts" selected="True" />
-                    </Node>
+                    <Node name="loggInn" expanded="True" />
                     <Node name="meny" expanded="True" />
+                    <Node name="Oversikt" expanded="True" />
                   </Node>
-                  <Node name="assets" expanded="True" />
-                  <Node name="environments" expanded="True" />
                 </Node>
               </Node>
               <Node name="Controllers" expanded="True" />
               <Node name="DAL" expanded="True" />
+              <Node name="Logs" expanded="True">
+                <Node name="ObservasjonerLog-20221122.txt" selected="True" />
+              </Node>
               <Node name="Model" expanded="True" />
+              <Node name="Pages" expanded="True" />
               <Node name="appsettings.json" expanded="True" />
             </Node>
             <Node name="UFO-Test" expanded="True" />
